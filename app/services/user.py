@@ -1,6 +1,7 @@
 from fastapi import HTTPException,status
 from app.db import models
 from app.schemas.user import UserCreateResponse
+from app.schemas.response import APIResponse
 from app.utils.hash import hash_user_password
 
 
@@ -24,10 +25,11 @@ def create_user(user_data,db):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-
-    return {
-        "msg" : "User Created Successfully!",
-        "status" : status.HTTP_201_CREATED,
-        "data" : UserCreateResponse.model_validate(new_user)
-    }
+    
+    return APIResponse(
+        msg="Hello",
+        status=status.HTTP_200_OK,
+        data=UserCreateResponse.model_validate(new_user)
+    )
+    
     

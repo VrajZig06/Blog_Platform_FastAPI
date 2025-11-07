@@ -1,12 +1,11 @@
-from pydantic import BaseModel,Field
-from typing import Annotated
+from pydantic import BaseModel,Field,ConfigDict
+from typing import Annotated,Any
 from app.schemas.user import UserCreate
 
 class APIResponse(BaseModel):
     msg : str = Field(max_length=100,description="This is Message for API Response")
-    status : str
-    data : UserCreate
+    status : int
+    data : Any
     
-    class config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
     
