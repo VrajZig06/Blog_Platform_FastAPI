@@ -8,3 +8,15 @@
 2025-11-07 11:26:44,235 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - INFO - Database Session Created!
 2025-11-07 11:26:50,431 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - INFO - Database Engine Created!
 2025-11-07 11:26:50,432 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - INFO - Database Session Created!
+2025-11-07 14:14:21,907 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 409: User Already Exist! 
+2025-11-07 14:14:47,692 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 'coroutine' object has no attribute 'model_dump' 
+2025-11-07 14:14:50,049 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 'coroutine' object has no attribute 'model_dump' 
+2025-11-07 14:14:50,421 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 'coroutine' object has no attribute 'model_dump' 
+2025-11-07 14:17:41,129 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 'coroutine' object has no attribute 'model_dump' 
+2025-11-07 14:17:41,835 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 'coroutine' object has no attribute 'model_dump' 
+2025-11-07 14:18:41,218 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 409: User Already Exist! 
+2025-11-07 14:18:41,881 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 409: User Already Exist! 
+2025-11-07 14:19:30,244 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 409: User Already Exist! 
+2025-11-07 14:19:32,657 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 409: User Already Exist! 
+2025-11-07 14:19:33,302 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 409: User Already Exist! 
+2025-11-07 14:19:53,359 - /Users/ztlab141/Desktop/Blog Platform(FastAPI)/app/db/session.py - ERROR - Database Error : 409: User Already Exist! 
