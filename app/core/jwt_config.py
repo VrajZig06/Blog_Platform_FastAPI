@@ -26,17 +26,25 @@ def verify_token(token:str,credentials_exception):
         decoded_payload = jwt.decode(token,key=os.getenv('SECRET_KEY'),algorithms=os.getenv('ALGORITHM'))
     
         id = decoded_payload.get('id')
+        email = decoded_payload.get('email')
+        type  = decoded_payload.get('type')
+
+        data = {
+            "id" : id,
+            "email" : email,
+            "type" : type
+        }
 
         if not id:
             raise credentials_exception
         
-        return id   
+        return data   
     except InvalidTokenError:
         raise credentials_exception
         
         
 def get_curent_user(token: str = Depends(oauth2_scheme)):
     credential_exception = HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Credentials are not authenticated!")
-
-    return verify_token(token,credential_exception)
+    
+    return  verify_token(token,credential_exception)
 

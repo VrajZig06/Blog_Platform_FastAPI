@@ -1,5 +1,5 @@
 from app.db.base import Base
-from sqlalchemy import Integer,Column,String,Text,Enum
+from sqlalchemy import Integer,Column,String,Text,Enum,TIMESTAMP,text
 from enum import Enum as PyEnum
 import uuid
 
@@ -20,3 +20,6 @@ class User(Base):
     gender = Column(String,nullable=False)
     profile_photo = Column(Text,nullable=True)  
     user_type = Column(Enum(UserType), nullable=False, default=UserType.READER)
+    
+    created_at = Column(TIMESTAMP(timezone=True),nullable=True,server_default=text("CURRENT_TIMESTAMP"))
+
