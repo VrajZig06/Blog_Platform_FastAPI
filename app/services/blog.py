@@ -2,6 +2,7 @@ from app.db import models
 from app.schemas.response import APIResponse,Pagination
 from fastapi import status,HTTPException
 from app.schemas.blog import BlogCreateResponse,BlogListResponse
+from app.utils.cloudinary import upload_file_to_cloudinary
 
 
 
@@ -111,3 +112,32 @@ def get_all_blogs(blog_query,db):
     data=blog_responses,
     pagination=Pagination(total=total_blogs,limit=blog_query.limit,skip=blog_query.skip)
   )
+  
+  
+def update_blog_image(blog_id,db,current_user,file):
+   
+  # Check Blog Exist with given Blog id
+  blog_exist_query = db.query(models.Blog).filter(models.Blog.id == blog_id)
+
+  blog = blog_exist_query.first()
+
+  if not blog:
+     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Blog Not Found!!")
+
+  if blog.author_id != current_user.get("id"):
+     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="You are not Authorize to Update this Blog!")
+  
+  image_url = upload_file_to_cloudinary(file)
+
+  blog.image_url = image_url
+
+  db.commit()
+  db.refresh(blog)
+  return APIResponse(
+     msg="Blog Image Updated Successfully!",
+     status=status.HTTP_200_OK,
+     data=BlogCreateResponse.model_validate(blog)
+  )
+  
+
+   

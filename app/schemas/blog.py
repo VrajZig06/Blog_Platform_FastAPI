@@ -6,6 +6,8 @@ class BlogCreate(BaseModel):
   title: str = Field(...,description="Blog Title")
   description : str = Field(default=None,description="Blog Description")
   tags : list = Field(default=list(),description="This is list of tags")
+  image_url : Optional[str] = Field(default=None,description="Blog Image")
+
 
 class BlogQueryParams(BaseModel):
   search : Optional[str] = None
@@ -21,7 +23,8 @@ class AuthorData(BaseModel):
 class BlogListResponse(BaseModel):
   id: str
   title : str
-  description : str
+  image_url : Optional[str] = None
+  description : Optional[str] = None
   tags : list
   owner : AuthorData
 
@@ -29,6 +32,7 @@ class BlogListResponse(BaseModel):
 
 class BlogCreateResponse(BaseModel):
   id:str
+  image_url : Optional[str] = None
   title : str
   description : Optional[str] = None 
   tags : list
@@ -40,6 +44,6 @@ class BlogUpdate(BaseModel):
   title:Optional[str] = None
   description : Optional[str] = None
   tags : Optional[list[str]] = None
-
+  image_url : Optional[str] = None
   model_config = ConfigDict(from_attributes=True)
 

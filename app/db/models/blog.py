@@ -8,8 +8,9 @@ class Blog(Base):
 
   id = Column(String,default=lambda:str(uuid.uuid4()),primary_key=True,nullable=False)
   title = Column(String,nullable=False)
-  description = Column(Text,nullable=False)
+  description = Column(Text,nullable=True)
   tags = Column(JSON,nullable=True)
+  image_url = Column(String,nullable=True)
 
   created_at = Column(TIMESTAMP(timezone=True),nullable=True,server_default=text("CURRENT_TIMESTAMP"))
 
